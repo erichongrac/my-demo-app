@@ -82,3 +82,15 @@ Thumbs.db
 *.userosscache
 *.sln.docstates
 backend/.vs/backend/FileContentIndex/5e97cca5-ca95-4eae-ad9c-b7c9b3b60b24.vsidx
+/backend/.vs/backend/FileContentIndex
+/backend.Tests/.vs/backend.Tests/FileContentIndex
+/backend.Tests/.vs/backend.Tests/v17
+/backend/.vs/backend/DesignTimeBuild
+/backend/.vs/backend/DesignTimeBuild
+/backend/.vs
+/backend/.vs
+*.v2
+/backend/.vs
+frontend/package-lock.json
+frontend/package.json
+frontend/package.json
