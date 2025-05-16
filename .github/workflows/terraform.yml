@@ -1,0 +1,42 @@
+# GitHub Actions pipeline
+
+name: Terraform CI
+
+on:
+  push:
+    paths:
+      - 'infra/**'
+    branches:
+      - main
+
+jobs:
+  terraform:
+    name: Terraform Plan & Apply
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./infra
+
+    steps:
+      # Checks out your repository's code so Terraform can access it.
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # Installs the Terraform CLI so the next steps can run terraform commands.
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # Initializes the Terraform working directory (downloads providers, etc.).
+      - name: Terraform Init
+        run: terraform init
+
+      # Shows what changes Terraform will make (without applying them yet).
+      - name: Terraform Plan
+        run: terraform plan
+
+      # Actually applies the Terraform changes.
+      # -auto-approve skips the interactive approval.
+      # The if: condition ensures this step runs only if the push is on the main branch (extra safety).
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        if: github.ref == 'refs/heads/main'
