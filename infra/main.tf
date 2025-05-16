@@ -4,6 +4,7 @@ resource "github_repository" "demo_repo" {
   description = "This repo is managed by Terraform"
   visibility  = "private"
   auto_init   = true
+  organization = var.github_owner
 }
 /*
 resource: Declares you're managing a GitHub resource.
