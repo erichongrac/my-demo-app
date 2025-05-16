@@ -1,10 +1,9 @@
 # Terraform config for GitHub resources
 resource "github_repository" "demo_repo" {
-  name        = "terraform-managed-repo"
-  description = "This repo is managed by Terraform"
-  visibility  = "private"
-  auto_init   = true
-  organization = var.github_owner
+  name         = "terraform-managed-repo"
+  description  = "This repo is managed by Terraform"
+  visibility   = "private"
+  auto_init    = true
 }
 /*
 resource: Declares you're managing a GitHub resource.
