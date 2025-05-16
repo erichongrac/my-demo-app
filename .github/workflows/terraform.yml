@@ -9,6 +9,10 @@ on:
     branches:
       - main
 
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  GH_OWNER: ${{ secrets.GH_OWNER }}
+
 jobs:
   terraform:
     name: Terraform Plan & Apply
