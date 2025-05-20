@@ -8,7 +8,8 @@ on:
       - 'infra/**'
     branches:
       - main
-
+  workflow_dispatch:
+  
 env:
   #TF_VAR_github_token → var.github_token
   #TF_VAR_github_owner → var.github_owner
