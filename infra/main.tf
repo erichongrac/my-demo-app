@@ -31,3 +31,47 @@ repository: The name of the repository where the secret will be added — fetche
 secret_name: What the secret will be called in the GitHub Actions workflow (e.g., ${{ secrets.API_KEY }}).
 plaintext_value: The secret value in plain text.
 */
+
+resource "azurerm_resource_group" "demo_rg" {
+  name     = "demo-rg"
+  location = "Australia East"
+}
+
+resource "azurerm_app_service_plan" "demo_plan" {
+  name                = "demo-app-service-plan"
+  location            = azurerm_resource_group.demo_rg.location
+  resource_group_name = azurerm_resource_group.demo_rg.name
+  kind                = "Linux"
+  reserved            = true
+
+  sku {
+    tier = "Basic"
+    size = "B1"
+  }
+}
+
+resource "azurerm_app_service" "backend_app" {
+  name                = "demo-backend-app"
+  location            = azurerm_resource_group.demo_rg.location
+  resource_group_name = azurerm_resource_group.demo_rg.name
+  app_service_plan_id = azurerm_app_service_plan.demo_plan.id
+
+  app_settings = {
+    "WEBSITES_PORT" = "5000" # if you're using Kestrel in .NET
+  }
+
+  site_config {
+    linux_fx_version = "DOTNETCORE|8.0"
+  }
+}
+
+resource "azurerm_app_service" "frontend_app" {
+  name                = "demo-frontend-app"
+  location            = azurerm_resource_group.demo_rg.location
+  resource_group_name = azurerm_resource_group.demo_rg.name
+  app_service_plan_id = azurerm_app_service_plan.demo_plan.id
+
+  site_config {
+    linux_fx_version = "NODE|18-lts"
+  }
+}

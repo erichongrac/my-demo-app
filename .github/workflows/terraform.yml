@@ -32,6 +32,11 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       # Initializes the Terraform working directory (downloads providers, etc.).
       - name: Terraform Init
         run: terraform init
