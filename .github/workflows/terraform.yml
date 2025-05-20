@@ -14,6 +14,7 @@ env:
   #TF_VAR_github_owner → var.github_owner
   TF_VAR_github_token: ${{ secrets.GH_TOKEN }}
   TF_VAR_github_owner : ${{ secrets.GH_OWNER }}
+  TF_VAR_azure_subscription_id: ${{ fromJson(secrets.AZURE_CREDENTIALS).subscriptionId }}
 
 jobs:
   terraform:
