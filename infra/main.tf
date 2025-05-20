@@ -3,7 +3,7 @@ resource "github_repository" "demo_repo" {
   name         = "terraform-managed-repo"
   description  = "This repo is managed by Terraform"
   visibility   = "private"
-  auto_init    = true
+  auto_init    = false
 
   # Reuse Existing Repo
   lifecycle {
