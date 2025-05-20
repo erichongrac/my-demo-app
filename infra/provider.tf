@@ -4,6 +4,7 @@ provider "github" {
   owner = var.github_owner
 }
 
+# Azure provider config
 provider "azurerm" {
-  features = {}
+  features {}
 }
