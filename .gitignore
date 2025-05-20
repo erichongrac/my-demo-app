@@ -94,3 +94,7 @@ backend/.vs/backend/FileContentIndex/5e97cca5-ca95-4eae-ad9c-b7c9b3b60b24.vsidx
 frontend/package-lock.json
 frontend/package.json
 frontend/package.json
+/infra/.terraform
+infra/.terraform.lock.hcl
+infra/.terraform.lock.hcl
+infra/.terraform.lock.hcl
