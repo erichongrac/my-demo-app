@@ -62,16 +62,16 @@ jobs:
         run: ls -l out
         working-directory: ./frontend
 
-      - name: Move static export to root
-        run: cp -r out/* .
-        working-directory: ./frontend
+      # - name: Move static export to root
+      #   run: cp -r out/* .
+      #   working-directory: ./frontend
 
       - name: Deploy Frontend to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: demo-frontend-app
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FRONTEND }}
-          package: ./frontend
+          package: ./frontend/out
 
       # --- Build & Deploy .NET Backend ---
       - name: Set up .NET
