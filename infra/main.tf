@@ -26,5 +26,8 @@ resource "azurerm_app_service" "frontend" {
   location            = azurerm_resource_group.demo_rg.location
   resource_group_name = azurerm_resource_group.demo_rg.name
   app_service_plan_id = azurerm_app_service_plan.demo_plan.id
-  site_config {}
+
+  site_config {
+    default_documents = ["index.html"]
+  }
 }
