@@ -98,3 +98,4 @@ frontend/package.json
 infra/.terraform.lock.hcl
 infra/.terraform.lock.hcl
 infra/.terraform.lock.hcl
+infra/terraform.tfvars
