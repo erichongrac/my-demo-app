@@ -58,9 +58,12 @@ jobs:
         run: npm run build
         working-directory: ./frontend
 
+      - name: List frontend directory after build
+        run: ls -l ./frontend
+
       - name: Move static export to root
-        run: |
-          cp -r ./frontend/out/* ./frontend/
+        run: cp -r out/* .
+        working-directory: ./frontend
 
       - name: Deploy Frontend to Azure Web App
         uses: azure/webapps-deploy@v3
