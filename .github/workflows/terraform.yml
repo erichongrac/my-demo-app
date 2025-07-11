@@ -49,7 +49,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-        working-directory: ./frontend
 
       - name: Install Frontend Dependencies
         run: npm install
@@ -71,7 +70,6 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-        working-directory: ./backend
 
       - name: Restore Backend Dependencies
         run: dotnet restore
