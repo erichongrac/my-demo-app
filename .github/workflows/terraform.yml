@@ -58,9 +58,9 @@ jobs:
         run: npm run build
         working-directory: ./frontend
 
-      - name: List frontend directory after build
-        run: ls -l out
-        working-directory: ./frontend
+      # - name: List frontend directory after build
+      #   run: ls -l out
+      #   working-directory: ./frontend
 
       # - name: Move static export to root
       #   run: cp -r out/* .
