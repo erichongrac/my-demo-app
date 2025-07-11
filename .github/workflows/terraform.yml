@@ -63,7 +63,7 @@ jobs:
         with:
           app-name: demo-frontend-app
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FRONTEND }}
-          package: ./frontend/build
+          package: ./frontend/out
 
       # --- Build & Deploy .NET Backend ---
       - name: Set up .NET
