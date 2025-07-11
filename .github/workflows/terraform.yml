@@ -2,8 +2,6 @@ name: Terraform CI
 
 on:
   push:
-    paths:
-      - 'infra/**'
     branches:
       - main
   workflow_dispatch:
