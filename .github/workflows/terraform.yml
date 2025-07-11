@@ -73,4 +73,19 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-        working-
+        working-directory: ./backend
+
+      - name: Restore Backend Dependencies
+        run: dotnet restore
+        working-directory: ./backend
+
+      - name: Build & Publish Backend
+        run: dotnet publish -c Release -o ./publish
+        working-directory: ./backend
+
+      - name: Deploy Backend to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: demo-backend-app
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BACKEND }}
+          package: ./backend/publish
