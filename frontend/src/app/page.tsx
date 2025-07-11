@@ -6,7 +6,8 @@ export default function Home() {
   const [message, setMessage] = useState('Loading...');
 
   useEffect(() => {
-    fetch('https://localhost:7099/hello')
+    //fetch('https://localhost:7099/hello')
+    fetch('https://demo-backend-app.azurewebsites.net/hello')
       .then(res => res.text())
       .then(setMessage)
       .catch(err => setMessage('Error: ' + err.message));
