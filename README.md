@@ -1,2 +1,2 @@
 # my-demo-app
-A demo app designed to improve my full-stack development skills using Next.js, .NET, Azure, and GitHub Actions.
+A demo Next.js and .NET application was deployed to Azure using Terraform and a CI/CD pipeline with GitHub Actions.
